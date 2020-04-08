@@ -1,28 +1,6 @@
 <?php
 require_once __DIR__ . '/src/Schema.php';
 
-class SchemaOne
-{
-
-    private $table;
-    private $column = [];
-
-
-    public static function create($table, $callback)
-    {
-        $cs = new static;
-        $cs->table = $table;
-        return call_user_func($callback, $cs);
-    }
-
-
-    public function addColumn($type, $name)
-    {
-        return print_r($type . ', ' . $name);
-    }
-}
-
-
  Schema::create('user', function (Blueprint $table) {
     $table->id();
     $table->string('name');
